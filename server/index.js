@@ -13,6 +13,9 @@ import {createPost} from './controllers/posts.js';
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
 import postRoutes from './routes/posts.js';
+import User from './models/User.js';
+import Post from './models/Post.js';
+import {users,posts} from './data/index.js'
 import { verifyToken } from './middleware/auth.js';
 
 /*configurations*/
@@ -52,7 +55,16 @@ mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-    .then(()=>{app.listen(PORT,() => console.log(`Database connected successfully on port ${PORT}`))} )
+    .then(()=>{
+        app.listen(PORT,() => console.log(`Database connected successfully on port ${PORT}`))
+    
+      /* ADD MOCKED DATA TO DATABASE ONE TIME */
+
+    //   User.insertMany(users)
+    //   Post.insertMany(posts)
+      
+    
+    } )
     .catch((err) => console.log(err));
 
 

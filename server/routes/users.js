@@ -1,8 +1,8 @@
 import express from 'express';
-import { verifyToken } from '../middleware/auth';
+import { verifyToken } from '../middleware/auth.js';
 const router=express.Router();
 
-import {getUser,getUserFriends,addRemoveFriend} from '../controllers/users';
+import {getUser,getUserFriends,addRemoveFriend} from '../controllers/users.js';
 
 /* Read */
 
